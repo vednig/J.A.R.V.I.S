@@ -1,7 +1,6 @@
 argparse
 aiml
 SpeechRecognition
-pyalsaaudio
 pyttsx
 pyaudio
 gTTS

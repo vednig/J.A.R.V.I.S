@@ -5,7 +5,7 @@ import argparse
 
 
 mode = "text"
-voice = "pyttsx"
+voice = "pyttsx3"
 terminate = ['bye', 'buy', 'shutdown', 'exit', 'quit', 'gotosleep', 'goodbye']
 
 
@@ -31,7 +31,7 @@ def gtts_speak(jarvis_speech):
 
 
 def offline_speak(jarvis_speech):
-    engine = pyttsx.init()
+    engine = pyttsx3.init()
     engine.say(jarvis_speech)
     engine.runAndWait()
 
@@ -76,12 +76,12 @@ if __name__ == '__main__':
             from pygame import mixer
             voice = "gTTS"
         except ImportError:
-            import pyttsx
+            import pyttsx3
             print("\nInstall gTTS and pygame to use this feature." +
-                  "\nUsing pyttsx\n")
+                  "\nUsing pyttsx3\n")
     else:
-        import pyttsx
-
+        import pyttsx3
+        import time
     kernel = aiml.Kernel()
 
     if os.path.isfile("bot_brain.brn"):
@@ -95,7 +95,7 @@ if __name__ == '__main__':
         if mode == "voice":
             response = listen()
         else:
-            response = raw_input("Talk to J.A.R.V.I.S : ")
+            response = input("Talk to J.A.R.V.I.S : ")
         if response.lower().replace(" ", "") in terminate:
             break
         jarvis_speech = kernel.respond(response)
