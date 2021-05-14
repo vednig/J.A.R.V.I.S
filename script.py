@@ -49,7 +49,7 @@ def listen():
         print("Talk to J.A.R.V.I.S: ")
         audio = r.listen(source)
     try:
-        print r.recognize_google(audio)
+        print(r.recognize_google(audio))
         return r.recognize_google(audio)
     except sr.UnknownValueError:
         speak(
@@ -99,5 +99,5 @@ if __name__ == '__main__':
         if response.lower().replace(" ", "") in terminate:
             break
         jarvis_speech = kernel.respond(response)
-        print "J.A.R.V.I.S: " + jarvis_speech
+        print("J.A.R.V.I.S: " + jarvis_speech)
         speak(jarvis_speech)
